@@ -55,3 +55,50 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# Build output
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+
+# Logs
+*.log
+
+# Test results
+TestResults/
+[Tt]est[Rr]esult*/
+*.trx
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Visual Studio Code
+.vscode/
+
+# ASP.NET Core
+wwwroot/lib/
+
+# User-specific files
+*.rsuser
+
+# Environment / local settings
+.env
+.env.*
+!.env.example
+

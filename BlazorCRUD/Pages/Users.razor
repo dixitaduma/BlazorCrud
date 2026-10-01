@@ -1,0 +1,58 @@
+﻿@page "/Users"
+@using BlazorCRUD.Data
+@inject UserService userService
+
+<p>
+    <a class="btn btn-primary" href="AddUser">Add New User</a>
+</p>
+
+<h1>User Info</h1>
+@if (uObj is null)
+{
+    <p><em>Loading... !</em></p>
+}
+else
+{
+    <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Designation</th>
+                    <th>City</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+        <tbody>
+            @foreach(var u in uObj)
+                {
+            <tr>
+                <td>@u.Id</td>
+                <td>@u.Name</td>
+                <td>@u.Gender</td>
+                <td>@u.Designation</td>
+                <td>@u.City</td>
+                <td>
+                        <a class="btn btn-warning btn-sm" href="EditUser/@u.Id">
+                        Edit
+                    </a>
+                        <a class="btn btn-danger btn-sm" href="Delete/@u.Id">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+                }
+        </tbody>
+    </table>
+}
+
+
+@code {
+    List<User> uObj;
+    protected override async Task OnInitializedAsync()
+    {
+        uObj = await Task.Run(() => userService.GetAllUsersAsync());
+       
+    }
+}
